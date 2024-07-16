@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{ values.name | safe }}
+  description: ${{ values.description | safe }}
+  tags:
+    {%- if "development" in values.environments %}
+    - development
+    {%- endif %}
+    {%- if "staging" in values.environments %}
+    - staging
+    {%- endif %}
+    {%- if "production" in values.environments %}
+    - production
+    {%- endif %}
+spec:
+  type: ${{ values.type | safe }}
+  owner: ${{ values.owner | safe }}
+  lifecycle: ${{ "experimental" if values.isExperimental else "production" }}
+  system: ${{ values.system | safe }}

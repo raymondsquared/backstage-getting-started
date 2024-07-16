@@ -1,0 +1,7 @@
+{
+  "testEnvironment": "node",
+  "preset": "ts-jest",
+  "transform": {
+    "^.+\\.(ts|tsx|js)$": "ts-jest"
+  }
+}

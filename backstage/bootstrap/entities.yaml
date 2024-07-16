@@ -1,0 +1,41 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-system
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: bootstrap
+spec:
+  owner: admins
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bootstrap-website
+spec:
+  type: website
+  lifecycle: experimental
+  owner: admins
+  system: bootstrap
+  providesApis: [bootstrap-grpc-api]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: bootstrap-grpc-api
+spec:
+  type: grpc
+  lifecycle: experimental
+  owner: admins
+  system: bootstrap
+  definition: |
+    syntax = "proto3";
+
+    service Bootstraper {
+      rpc Bootstrap (BootstrapMessage) returns (BootstrapMessage) {};
+    }
+
+    message BootstrapMessage {
+      string bootstrap = 1;
+    };

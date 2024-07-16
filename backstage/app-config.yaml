@@ -96,16 +96,26 @@ catalog:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
       target: ../../examples/entities.yaml
+    - type: file
+      target: ../../bootstrap/entities.yaml
 
     # Local example template
     - type: file
       target: ../../examples/template/template.yaml
       rules:
         - allow: [Template]
+    - type: file
+      target: ../../bootstrap/template/template.yaml
+      rules:
+        - allow: [Template]
 
     # Local example organizational data
     - type: file
       target: ../../examples/org.yaml
+      rules:
+        - allow: [User, Group]
+    - type: file
+      target: ../../bootstrap/org.yaml
       rules:
         - allow: [User, Group]
 
