@@ -40,6 +40,8 @@ cd backstage
 ### Backstage Commands
 
 ```bash
+make infrastructure__run    # Start Backstage infrastructure
+
 make backstage__install     # Install dependencies
 make backstage__run         # Start the development server
 ```
