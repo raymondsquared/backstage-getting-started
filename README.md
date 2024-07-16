@@ -19,6 +19,8 @@ This guide walks through how to get started creating your very own Backstage cus
 
 - NVM
 - YARN
+- Docker
+- PostgreSQL
 
 ## 🛠 Installation
 
@@ -27,7 +29,7 @@ This guide walks through how to get started creating your very own Backstage cus
 make backstage__install
 
 # Start the development server
-make backstage__install
+make backstage__run
 
 # Navigate to the backstage project directory
 cd backstage
@@ -38,8 +40,8 @@ cd backstage
 ### Backstage Commands
 
 ```bash
-make backstage__install    # Install dependencies
-make backstage__install        # Start the development server
+make backstage__install     # Install dependencies
+make backstage__run         # Start the development server
 ```
 
 ## 🤝 Contributing
