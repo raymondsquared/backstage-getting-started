@@ -1,5 +1,5 @@
 {
-  "name": "${{ values.name | safe }}",
+  "name": "${{ values.name | safe | lower | replace(' ', '-') }}",
   "author": "${{ values.owner | safe }}",
   "description": "${{ values.description | safe }}",
   "private": true,

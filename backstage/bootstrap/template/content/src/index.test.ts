@@ -19,7 +19,7 @@ describe('basic tests', () => {
 
   it('SHOULD return correct output WHEN getName is invoked', () => {
     const actual = getName();
-    const expected = '${{ values.name }}';
+    const expected = "${{ values.name | safe | lower | replace(' ', '-') }}";
 
     expect(actual).toBe(expected);
   });

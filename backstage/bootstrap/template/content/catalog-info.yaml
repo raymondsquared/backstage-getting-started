@@ -1,8 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ values.name | safe }}
+  name: ${{ values.name | safe | lower | replace(' ', '-') }}
   description: ${{ values.description | safe }}
+  annotations:
+    backstage.io/techdocs-ref: dir:.
   tags:
     {%- if "development" in values.environments %}
     - development

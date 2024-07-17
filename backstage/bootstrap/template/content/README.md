@@ -1,4 +1,4 @@
-# ${{ values.name | safe }}
+# ${{ values.name | safe | lower | replace(' ', '-') }}
 
 ![Backstage Logo](https://via.placeholder.com/150)
 

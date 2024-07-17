@@ -1,5 +1,5 @@
 const getName = (): string => {
-  return '${{ values.name }}';
+  return "${{ values.name | safe | lower | replace(' ', '-') }}";
 };
 
 export { getName };
