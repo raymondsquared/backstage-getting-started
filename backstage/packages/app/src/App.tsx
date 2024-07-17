@@ -37,6 +37,10 @@ import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
+import { HomepageCompositionRoot, VisitListener } from '@backstage/plugin-home';
+import { CustomizableHomePage } from './components/home/CustomizableHomePage';
+import { ExplorePage } from '@backstage-community/plugin-explore';
+import { TechRadarPage } from '@backstage-community/plugin-tech-radar';
 
 const githubAuthProvider = {
   id: 'github-auth-provider',
@@ -67,7 +71,6 @@ const app = createApp({
   components: {
     SignInPage: props => (
       <SignInPage {...props} auto providers={['guest', githubAuthProvider]} />
-      // <SignInPage {...props} auto providers={[githubAuthProvider]} />
     ),
   },
 });
@@ -75,6 +78,9 @@ const app = createApp({
 const routes = (
   <FlatRoutes>
     <Route path="/" element={<Navigate to="catalog" />} />
+    <Route path="/home" element={<HomepageCompositionRoot />}>
+      <CustomizableHomePage />
+    </Route>
     <Route path="/catalog" element={<CatalogIndexPage />} />
     <Route
       path="/catalog/:namespace/:kind/:name"
@@ -106,6 +112,11 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route path="/explore" element={<ExplorePage />} />
+    <Route
+      path="/tech-radar"
+      element={<TechRadarPage width={1500} height={800} />}
+    />
   </FlatRoutes>
 );
 
@@ -114,6 +125,7 @@ export default app.createRoot(
     <AlertDisplay />
     <OAuthRequestDialog />
     <AppRouter>
+      <VisitListener />
       <Root>{routes}</Root>
     </AppRouter>
   </>,
