@@ -43,7 +43,7 @@ make build                              # Build the application
 
 ## 🤝 Contributing
 
-We welcome contributions to Backstage Getting Started! Please see Backstage's [CONTRIBUTING.md](https://github.com/backstage/backstage/blob/master/CONTRIBUTING.md) for details on how to submit pull requests, report issues, and suggest improvements.
+We welcome contributions to Backstage Getting Started! Please see Backstage's [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to submit pull requests, report issues, and suggest improvements.
 
 ## 📜 License
 
